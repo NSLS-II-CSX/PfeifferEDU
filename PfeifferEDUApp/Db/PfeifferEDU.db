@@ -108,7 +108,7 @@ record(longin, "$(Sys)$(Dev)T:Mtr-I"){
 record(mbbi, "$(Sys)$(Dev)Sts:Err-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorParam($(ID),303) $(PORT)")
-	field(SCAN, "$(SCAN)")
+	field(SCAN, "10 second")
 	field(TWSV, "NO_ALARM")
 	field(ONSV, "MINOR")
 	field(ZRSV, "MAJOR")
@@ -120,7 +120,7 @@ record(mbbi, "$(Sys)$(Dev)Sts:Err-Sts"){
 record(longin, "$(Sys)$(Dev)Sts:ErrCode-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),303) $(PORT)")
-	field(SCAN, "$(SCAN)")
+	field(SCAN, "10 second")
 	field(SDIS, "$(Sys)$(Dev)Sts:Err-Sts NPP MS")
 	field(DISV, "256")
 }
@@ -128,7 +128,7 @@ record(longin, "$(Sys)$(Dev)Sts:ErrCode-Sts"){
 record(mbbi, "$(Sys)$(Dev)Sts:Err1-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorParam($(ID),360) $(PORT)")
-	field(SCAN, "$(SCAN)")
+	field(SCAN, "10 second")
 	field(ZRSV, "NO_ALARM")
 	field(ONSV, "MINOR")
 	field(TWSV, "MAJOR")
@@ -140,7 +140,7 @@ record(mbbi, "$(Sys)$(Dev)Sts:Err1-Sts"){
 record(longin, "$(Sys)$(Dev)Sts:ErrCode1-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),360) $(PORT)")
-	field(SCAN, "$(SCAN)")
+	field(SCAN, "10 second")
 	field(SDIS, "$(Sys)$(Dev)Sts:Err1-Sts NPP MS")
 	field(DISV, "256")
 }
@@ -148,7 +148,7 @@ record(longin, "$(Sys)$(Dev)Sts:ErrCode1-Sts"){
 record(mbbi, "$(Sys)$(Dev)Sts:Err2-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorParam($(ID),361) $(PORT)")
-	field(SCAN, "$(SCAN)")
+	field(SCAN, "10 second")
 	field(ZRSV, "NO_ALARM")
 	field(ONSV, "MINOR")
 	field(TWSV, "MAJOR")
@@ -160,7 +160,7 @@ record(mbbi, "$(Sys)$(Dev)Sts:Err2-Sts"){
 record(longin, "$(Sys)$(Dev)Sts:ErrCode2-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),361) $(PORT)")
-	field(SCAN, "$(SCAN)")
+	field(SCAN, "10 second")
 	field(SDIS, "$(Sys)$(Dev)Sts:Err2-Sts NPP MS")
 	field(DISV, "256")
 }
@@ -168,7 +168,7 @@ record(longin, "$(Sys)$(Dev)Sts:ErrCode2-Sts"){
 record(mbbi, "$(Sys)$(Dev)Sts:Err3-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorParam($(ID),362) $(PORT)")
-	field(SCAN, "$(SCAN)")
+	field(SCAN, "10 second")
 	field(ZRSV, "NO_ALARM")
 	field(ONSV, "MINOR")
 	field(TWSV, "MAJOR")
@@ -180,7 +180,7 @@ record(mbbi, "$(Sys)$(Dev)Sts:Err3-Sts"){
 record(longin, "$(Sys)$(Dev)Sts:ErrCode3-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),362) $(PORT)")
-	field(SCAN, "$(SCAN)")
+	field(SCAN, "10 second")
 	field(SDIS, "$(Sys)$(Dev)Sts:Err3-Sts NPP MS")
 	field(DISV, "256")
 }
@@ -188,7 +188,7 @@ record(longin, "$(Sys)$(Dev)Sts:ErrCode3-Sts"){
 record(mbbi, "$(Sys)$(Dev)Sts:Err4-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorParam($(ID),363) $(PORT)")
-	field(SCAN, "$(SCAN)")
+	field(SCAN, "10 second")
 	field(ZRSV, "NO_ALARM")
 	field(ONSV, "MINOR")
 	field(TWSV, "MAJOR")
@@ -200,7 +200,7 @@ record(mbbi, "$(Sys)$(Dev)Sts:Err4-Sts"){
 record(longin, "$(Sys)$(Dev)Sts:ErrCode4-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),363) $(PORT)")
-	field(SCAN, "$(SCAN)")
+	field(SCAN, "10 second")
 	field(SDIS, "$(Sys)$(Dev)Sts:Err4-Sts NPP MS")
 	field(DISV, "256")
 }
@@ -208,7 +208,7 @@ record(longin, "$(Sys)$(Dev)Sts:ErrCode4-Sts"){
 record(mbbi, "$(Sys)$(Dev)Sts:Err5-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorParam($(ID),364) $(PORT)")
-	field(SCAN, "$(SCAN)")
+	field(SCAN, "10 second")
 	field(ZRSV, "NO_ALARM")
 	field(ONSV, "MINOR")
 	field(TWSV, "MAJOR")
@@ -220,7 +220,7 @@ record(mbbi, "$(Sys)$(Dev)Sts:Err5-Sts"){
 record(longin, "$(Sys)$(Dev)Sts:ErrCode5-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),364) $(PORT)")
-	field(SCAN, "$(SCAN)")
+	field(SCAN, "10 second")
 	field(SDIS, "$(Sys)$(Dev)Sts:Err5-Sts NPP MS")
 	field(DISV, "256")
 }
@@ -228,7 +228,7 @@ record(longin, "$(Sys)$(Dev)Sts:ErrCode5-Sts"){
 record(mbbi, "$(Sys)$(Dev)Sts:Err6-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorParam($(ID),365) $(PORT)")
-	field(SCAN, "$(SCAN)")
+	field(SCAN, "10 second")
 	field(ZRSV, "NO_ALARM")
 	field(ONSV, "MINOR")
 	field(TWSV, "MAJOR")
@@ -240,7 +240,7 @@ record(mbbi, "$(Sys)$(Dev)Sts:Err6-Sts"){
 record(longin, "$(Sys)$(Dev)Sts:ErrCode6-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),365) $(PORT)")
-	field(SCAN, "$(SCAN)")
+	field(SCAN, "10 second")
 	field(SDIS, "$(Sys)$(Dev)Sts:Err6-Sts NPP MS")
 	field(DISV, "256")
 }
@@ -248,7 +248,7 @@ record(longin, "$(Sys)$(Dev)Sts:ErrCode6-Sts"){
 record(mbbi, "$(Sys)$(Dev)Sts:Err7-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorParam($(ID),366) $(PORT)")
-	field(SCAN, "$(SCAN)")
+	field(SCAN, "10 second")
 	field(ZRSV, "NO_ALARM")
 	field(ONSV, "MINOR")
 	field(TWSV, "MAJOR")
@@ -260,7 +260,7 @@ record(mbbi, "$(Sys)$(Dev)Sts:Err7-Sts"){
 record(longin, "$(Sys)$(Dev)Sts:ErrCode7-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),366) $(PORT)")
-	field(SCAN, "$(SCAN)")
+	field(SCAN, "10 second")
 	field(SDIS, "$(Sys)$(Dev)Sts:Err7-Sts NPP MS")
 	field(DISV, "256")
 }
@@ -268,7 +268,7 @@ record(longin, "$(Sys)$(Dev)Sts:ErrCode7-Sts"){
 record(mbbi, "$(Sys)$(Dev)Sts:Err8-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorParam($(ID),367) $(PORT)")
-	field(SCAN, "$(SCAN)")
+	field(SCAN, "10 second")
 	field(ZRSV, "NO_ALARM")
 	field(ONSV, "MINOR")
 	field(TWSV, "MAJOR")
@@ -280,7 +280,7 @@ record(mbbi, "$(Sys)$(Dev)Sts:Err8-Sts"){
 record(longin, "$(Sys)$(Dev)Sts:ErrCode8-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),367) $(PORT)")
-	field(SCAN, "$(SCAN)")
+	field(SCAN, "10 second")
 	field(SDIS, "$(Sys)$(Dev)Sts:Err8-Sts NPP MS")
 	field(DISV, "256")
 }
@@ -288,7 +288,7 @@ record(longin, "$(Sys)$(Dev)Sts:ErrCode8-Sts"){
 record(mbbi, "$(Sys)$(Dev)Sts:Err9-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorParam($(ID),368) $(PORT)")
-	field(SCAN, "$(SCAN)")
+	field(SCAN, "10 second")
 	field(ZRSV, "NO_ALARM")
 	field(ONSV, "MINOR")
 	field(TWSV, "MAJOR")
@@ -300,7 +300,7 @@ record(mbbi, "$(Sys)$(Dev)Sts:Err9-Sts"){
 record(longin, "$(Sys)$(Dev)Sts:ErrCode9-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),368) $(PORT)")
-	field(SCAN, "$(SCAN)")
+	field(SCAN, "10 second")
 	field(SDIS, "$(Sys)$(Dev)Sts:Err9-Sts NPP MS")
 	field(DISV, "256")
 }
@@ -308,7 +308,7 @@ record(longin, "$(Sys)$(Dev)Sts:ErrCode9-Sts"){
 record(mbbi, "$(Sys)$(Dev)Sts:Err10-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorParam($(ID),369) $(PORT)")
-	field(SCAN, "$(SCAN)")
+	field(SCAN, "10 second")
 	field(ZRSV, "NO_ALARM")
 	field(ONSV, "MINOR")
 	field(TWSV, "MAJOR")
@@ -320,7 +320,7 @@ record(mbbi, "$(Sys)$(Dev)Sts:Err10-Sts"){
 record(longin, "$(Sys)$(Dev)Sts:ErrCode10-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),369) $(PORT)")
-	field(SCAN, "$(SCAN)")
+	field(SCAN, "10 second")
 	field(SDIS, "$(Sys)$(Dev)Sts:Err10-Sts NPP MS")
 	field(DISV, "256")
 }
@@ -337,7 +337,7 @@ record(mbbi, "$(Sys)$(Dev)Mode:A1-Sts"){
 	field(SXST, "Always 0")
 	field(SVST, "Always 1")
 	field(EIST, "Power Fail Vent Unit")
-	field(SCAN, "$(SCAN)")
+	field(SCAN, "10 second")
 }
 
 record(mbbo, "$(Sys)$(Dev)Mode:A1-Sel"){
@@ -366,7 +366,7 @@ record(mbbi, "$(Sys)$(Dev)Mode:B1-Sts"){
 	field(SXST, "Always 0")
 	field(SVST, "Always 1")
 	field(EIST, "Power Fail Vent Unit")
-	field(SCAN, "$(SCAN)")
+	field(SCAN, "10 second")
 }
 
 record(mbbo, "$(Sys)$(Dev)Mode:B1-Sel"){
@@ -395,7 +395,7 @@ record(mbbi, "$(Sys)$(Dev)Mode:A2-Sts"){
 	field(SXST, "Always 0")
 	field(SVST, "Always 1")
 	field(EIST, "Power Fail Vent Unit")
-	field(SCAN, "$(SCAN)")
+	field(SCAN, "10 second")
 }
 
 record(mbbo, "$(Sys)$(Dev)Mode:A2-Sel"){
@@ -424,7 +424,7 @@ record(mbbi, "$(Sys)$(Dev)Mode:B2-Sts"){
 	field(SXST, "Always 0")
 	field(SVST, "Always 1")
 	field(EIST, "Power Fail Vent Unit")
-	field(SCAN, "$(SCAN)")
+	field(SCAN, "10 second")
 }
 
 record(mbbo, "$(Sys)$(Dev)Mode:B2-Sel"){
@@ -451,7 +451,7 @@ record(mbbi, "$(Sys)$(Dev)Mode:DI1-Sts"){
 	field(FRST, "Run-up Control")
 	field(FVST, "Rot. Speed Setting")
 	field(SXST, "Motor")
-	field(SCAN, "$(SCAN)")
+	field(SCAN, "10 second")
 }
 
 record(mbbo, "$(Sys)$(Dev)Mode:DI1-Sel"){
@@ -476,7 +476,7 @@ record(mbbi, "$(Sys)$(Dev)Mode:DI2-Sts"){
 	field(FRST, "Run-up Control")
 	field(FVST, "Rot. Speed Setting")
 	field(SXST, "Motor")
-	field(SCAN, "$(SCAN)")
+	field(SCAN, "10 second")
 }
 
 record(mbbo, "$(Sys)$(Dev)Mode:DI2-Sel"){
@@ -499,7 +499,7 @@ record(mbbi, "$(Sys)$(Dev)Mode:Vent-Sts"){
 	field(ZRST, "Delayed Venting")
 	field(ONST, "No Venting")
 	field(TWST, "Direct Venting")
-	field(SCAN, "$(SCAN)")
+	field(SCAN, "10 second")
 }
 
 record(mbbo, "$(Sys)$(Dev)Mode:Vent-Sel"){
