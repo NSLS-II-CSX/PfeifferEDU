@@ -1,6 +1,51 @@
 Terminator = CR;
 
-dataRequest {
+readBoolParam {
+	out "\$100\$202=?%+<sum>";
+	in "\$110\$206%{000000|111111}%+<sum>";
+}
+
+writeBoolParam {
+	out "\$110\$206%{000000|111111}%+<sum>";
+	in "\$110\$206%{000000|111111}%+<sum>";
+}
+
+readIntParam {
 	out "\$100\$202=?%+<sum>";
 	in "\$110\$206%6d%+<sum>";
+}
+
+readShortIntParam {
+	out "\$100\$202=?%+<sum>";
+	in "\$110\$203%3d%+<sum>";
+}
+
+writeShortIntParam {
+	out "\$110\$203%03d%+<sum>";
+	in "\$110\$203%3d%+<sum>";
+}
+
+writeFloatParam {
+	out "\$100\$206%06d%+<sum>";
+	in "\$110\$206%6d%+<sum>";
+}
+
+readStringParam {
+	out "\$100\$202=?%+<sum>";
+	in "\$110\$206%6s%+<sum>";
+}
+
+writeStringParam {
+	out "\$100\$206%6s%+<sum>";
+	in "\$110\$206%6s%+<sum>";
+}
+
+readErrorParam {
+	out "\$100\$202=?%+<sum>";
+	in "\$110\$206%{000|Wrn|Err}%*3d%+<sum>";
+}
+
+readErrorCodeParam {
+	out "\$100\$202=?%+<sum>";
+	in "\$110\$206%*{000|Wrn|Err}%3d%+<sum>";
 }

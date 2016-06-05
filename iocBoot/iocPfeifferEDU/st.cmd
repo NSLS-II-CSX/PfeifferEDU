@@ -13,11 +13,12 @@ dbLoadDatabase("dbd/PfeifferEDU.dbd",0,0)
 PfeifferEDU_registerRecordDeviceDriver(pdbbase) 
 
 drvAsynIPPortConfigure("PUMP1","10.23.2.63:4016",0,0,0)
-asynSetTraceMask("PUMP1", 0, 0x9)
-asynSetTraceIOMask("PUMP1", 0, 0x2)
+#asynSetTraceMask("PUMP1", 0, 0x9)
+#asynSetTraceIOMask("PUMP1", 0, 0x2)
 
 ## Load record instances
-dbLoadRecords("db/test.db","Sys=XF:23ID1-VA,Dev={TMP:1},PORT=PUMP1")
+dbLoadRecords("db/PfeifferEDU.db","Sys=XF:23ID1-VA,Dev={Dif:LoadLck-TMP:1},ID=001,PORT=PUMP1,SCAN=1 second")
 
 iocInit()
 
+dbl > records.dbl

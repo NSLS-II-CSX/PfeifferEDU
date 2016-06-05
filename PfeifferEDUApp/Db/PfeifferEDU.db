@@ -1,0 +1,512 @@
+record(bo, "$(Sys)$(Dev)Pwr-Sel"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeBoolParam($(ID),010) $(PORT)")
+	field(FLNK, "$(Sys)$(Dev)Pwr-Sts")
+	field(ZNAM, "OFF")
+	field(ONAM, "ON")
+}
+
+record(bi, "$(Sys)$(Dev)Pwr-Sts__"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readBoolParam($(ID),010) $(PORT)")
+}
+
+record(bi, "$(Sys)$(Dev)Val:Spd-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readBoolParam($(ID),306) $(PORT)")
+}
+
+record(bi, "$(Sys)$(Dev)Val:Acc-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readBoolParam($(ID),307) $(PORT)")
+}
+
+record(bo, "$(Sys)$(Dev)Cmd:ErrAck-Cmd"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeBoolParam($(ID),009) $(PORT)")
+	field(ZNAM, "None")
+	field(ONAM, "ACK")
+	field(HIGH, "1")
+}
+
+record(calc, "$(Sys)$(Dev)Pwr-Sts_"){
+	field(INPA, "$(Sys)$(Dev)Pwr-Sts__ PP NMS")
+	field(INPB, "$(Sys)$(Dev)Val:Spd-Sts PP NMS")
+	field(INPC, "$(Sys)$(Dev)Val:Acc-Sts PP NMS")
+	field(INPD, "$(Sys)$(Dev)Val:RotSpd-I PP NMS")
+	field(CALC, "A + (B << 1) + (C << 2) + ((D > 20) << 3)")
+}
+
+record(mbbi, "$(Sys)$(Dev)Pwr-Sts"){
+	field(DTYP, "Raw Soft Channel")
+	field(INP, "$(Sys)$(Dev)Pwr-Sts_ PP NMS")
+	field(ZRST, "OFF")
+	field(ZRVL, "0")
+	field(ONST, "At Speed")
+	field(ONVL, "11")
+	field(TWST, "Accelerating")
+	field(TWVL, "13")
+	field(THST, "Accelerating")
+	field(THVL, "5")
+	field(FRST, "Decelerating")
+	field(FRVL, "10")
+	field(FVST, "Decelerating")
+	field(FVVL, "8")
+	field(ZRSV, "MINOR")
+	field(ONSV, "NO_ALARM")
+	field(TWSV, "MINOR")
+	field(THSV, "MINOR")
+	field(FRSV, "MINOR")
+	field(FVSV, "MINOR")
+	field(SCAN, "$(SCAN)")
+}
+
+
+record(longin, "$(Sys)$(Dev)Val:RotSpd-I"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readIntParam($(ID),309) $(PORT)")
+	field(EGU,  "Hz")
+}
+
+record(longin, "$(Sys)$(Dev)Val:RotSpd-RB"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readIntParam($(ID),308) $(PORT)")
+	field(SCAN, "$(SCAN)")
+	field(EGU,  "Hz")
+}
+
+record(ai, "$(Sys)$(Dev)I-I"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readIntParam($(ID),310) $(PORT)")
+	field(SCAN, "$(SCAN)")
+	field(EGU,  "Amps")
+	field(ASLO, "0.01")
+}
+
+record(ai, "$(Sys)$(Dev)E-I"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readIntParam($(ID),313) $(PORT)")
+	field(SCAN, "$(SCAN)")
+	field(EGU,  "Volts")
+	field(ASLO, "0.01")
+}
+
+record(longin, "$(Sys)$(Dev)T:Brg-I"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readIntParam($(ID),342) $(PORT)")
+	field(SCAN, "$(SCAN)")
+	field(EGU,  "Hz")
+}
+
+record(longin, "$(Sys)$(Dev)T:Mtr-I"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readIntParam($(ID),346) $(PORT)")
+	field(SCAN, "$(SCAN)")
+	field(EGU,  "Hz")
+}
+
+record(mbbi, "$(Sys)$(Dev)Sts:Err-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readErrorParam($(ID),303) $(PORT)")
+	field(SCAN, "$(SCAN)")
+	field(TWSV, "NO_ALARM")
+	field(ONSV, "MINOR")
+	field(ZRSV, "MAJOR")
+	field(ZRST, "NONE")
+	field(ONST, "WARNING")
+	field(TWST, "ERROR")
+}
+
+record(longin, "$(Sys)$(Dev)Sts:ErrCode-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),303) $(PORT)")
+	field(SCAN, "$(SCAN)")
+	field(SDIS, "$(Sys)$(Dev)Sts:Err-Sts NPP MS")
+	field(DISV, "256")
+}
+
+record(mbbi, "$(Sys)$(Dev)Sts:Err1-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readErrorParam($(ID),360) $(PORT)")
+	field(SCAN, "$(SCAN)")
+	field(ZRSV, "NO_ALARM")
+	field(ONSV, "MINOR")
+	field(TWSV, "MAJOR")
+	field(ZRST, "NONE")
+	field(ONST, "WARNING")
+	field(TWST, "ERROR")
+}
+
+record(longin, "$(Sys)$(Dev)Sts:ErrCode1-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),360) $(PORT)")
+	field(SCAN, "$(SCAN)")
+	field(SDIS, "$(Sys)$(Dev)Sts:Err1-Sts NPP MS")
+	field(DISV, "256")
+}
+
+record(mbbi, "$(Sys)$(Dev)Sts:Err2-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readErrorParam($(ID),361) $(PORT)")
+	field(SCAN, "$(SCAN)")
+	field(ZRSV, "NO_ALARM")
+	field(ONSV, "MINOR")
+	field(TWSV, "MAJOR")
+	field(ZRST, "NONE")
+	field(ONST, "WARNING")
+	field(TWST, "ERROR")
+}
+
+record(longin, "$(Sys)$(Dev)Sts:ErrCode2-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),361) $(PORT)")
+	field(SCAN, "$(SCAN)")
+	field(SDIS, "$(Sys)$(Dev)Sts:Err2-Sts NPP MS")
+	field(DISV, "256")
+}
+
+record(mbbi, "$(Sys)$(Dev)Sts:Err3-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readErrorParam($(ID),362) $(PORT)")
+	field(SCAN, "$(SCAN)")
+	field(ZRSV, "NO_ALARM")
+	field(ONSV, "MINOR")
+	field(TWSV, "MAJOR")
+	field(ZRST, "NONE")
+	field(ONST, "WARNING")
+	field(TWST, "ERROR")
+}
+
+record(longin, "$(Sys)$(Dev)Sts:ErrCode3-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),362) $(PORT)")
+	field(SCAN, "$(SCAN)")
+	field(SDIS, "$(Sys)$(Dev)Sts:Err3-Sts NPP MS")
+	field(DISV, "256")
+}
+
+record(mbbi, "$(Sys)$(Dev)Sts:Err4-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readErrorParam($(ID),363) $(PORT)")
+	field(SCAN, "$(SCAN)")
+	field(ZRSV, "NO_ALARM")
+	field(ONSV, "MINOR")
+	field(TWSV, "MAJOR")
+	field(ZRST, "NONE")
+	field(ONST, "WARNING")
+	field(TWST, "ERROR")
+}
+
+record(longin, "$(Sys)$(Dev)Sts:ErrCode4-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),363) $(PORT)")
+	field(SCAN, "$(SCAN)")
+	field(SDIS, "$(Sys)$(Dev)Sts:Err4-Sts NPP MS")
+	field(DISV, "256")
+}
+
+record(mbbi, "$(Sys)$(Dev)Sts:Err5-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readErrorParam($(ID),364) $(PORT)")
+	field(SCAN, "$(SCAN)")
+	field(ZRSV, "NO_ALARM")
+	field(ONSV, "MINOR")
+	field(TWSV, "MAJOR")
+	field(ZRST, "NONE")
+	field(ONST, "WARNING")
+	field(TWST, "ERROR")
+}
+
+record(longin, "$(Sys)$(Dev)Sts:ErrCode5-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),364) $(PORT)")
+	field(SCAN, "$(SCAN)")
+	field(SDIS, "$(Sys)$(Dev)Sts:Err5-Sts NPP MS")
+	field(DISV, "256")
+}
+
+record(mbbi, "$(Sys)$(Dev)Sts:Err6-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readErrorParam($(ID),365) $(PORT)")
+	field(SCAN, "$(SCAN)")
+	field(ZRSV, "NO_ALARM")
+	field(ONSV, "MINOR")
+	field(TWSV, "MAJOR")
+	field(ZRST, "NONE")
+	field(ONST, "WARNING")
+	field(TWST, "ERROR")
+}
+
+record(longin, "$(Sys)$(Dev)Sts:ErrCode6-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),365) $(PORT)")
+	field(SCAN, "$(SCAN)")
+	field(SDIS, "$(Sys)$(Dev)Sts:Err6-Sts NPP MS")
+	field(DISV, "256")
+}
+
+record(mbbi, "$(Sys)$(Dev)Sts:Err7-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readErrorParam($(ID),366) $(PORT)")
+	field(SCAN, "$(SCAN)")
+	field(ZRSV, "NO_ALARM")
+	field(ONSV, "MINOR")
+	field(TWSV, "MAJOR")
+	field(ZRST, "NONE")
+	field(ONST, "WARNING")
+	field(TWST, "ERROR")
+}
+
+record(longin, "$(Sys)$(Dev)Sts:ErrCode7-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),366) $(PORT)")
+	field(SCAN, "$(SCAN)")
+	field(SDIS, "$(Sys)$(Dev)Sts:Err7-Sts NPP MS")
+	field(DISV, "256")
+}
+
+record(mbbi, "$(Sys)$(Dev)Sts:Err8-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readErrorParam($(ID),367) $(PORT)")
+	field(SCAN, "$(SCAN)")
+	field(ZRSV, "NO_ALARM")
+	field(ONSV, "MINOR")
+	field(TWSV, "MAJOR")
+	field(ZRST, "NONE")
+	field(ONST, "WARNING")
+	field(TWST, "ERROR")
+}
+
+record(longin, "$(Sys)$(Dev)Sts:ErrCode8-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),367) $(PORT)")
+	field(SCAN, "$(SCAN)")
+	field(SDIS, "$(Sys)$(Dev)Sts:Err8-Sts NPP MS")
+	field(DISV, "256")
+}
+
+record(mbbi, "$(Sys)$(Dev)Sts:Err9-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readErrorParam($(ID),368) $(PORT)")
+	field(SCAN, "$(SCAN)")
+	field(ZRSV, "NO_ALARM")
+	field(ONSV, "MINOR")
+	field(TWSV, "MAJOR")
+	field(ZRST, "NONE")
+	field(ONST, "WARNING")
+	field(TWST, "ERROR")
+}
+
+record(longin, "$(Sys)$(Dev)Sts:ErrCode9-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),368) $(PORT)")
+	field(SCAN, "$(SCAN)")
+	field(SDIS, "$(Sys)$(Dev)Sts:Err9-Sts NPP MS")
+	field(DISV, "256")
+}
+
+record(mbbi, "$(Sys)$(Dev)Sts:Err10-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readErrorParam($(ID),369) $(PORT)")
+	field(SCAN, "$(SCAN)")
+	field(ZRSV, "NO_ALARM")
+	field(ONSV, "MINOR")
+	field(TWSV, "MAJOR")
+	field(ZRST, "NONE")
+	field(ONST, "WARNING")
+	field(TWST, "ERROR")
+}
+
+record(longin, "$(Sys)$(Dev)Sts:ErrCode10-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),369) $(PORT)")
+	field(SCAN, "$(SCAN)")
+	field(SDIS, "$(Sys)$(Dev)Sts:Err10-Sts NPP MS")
+	field(DISV, "256")
+}
+
+record(mbbi, "$(Sys)$(Dev)Mode:A1-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readShortIntParam($(ID),035) $(PORT)")
+	field(ZRST, "Continuous Fan")
+	field(ONST, "Venting Valve")
+	field(TWST, "Heating")
+	field(THST, "Backing Pump")
+	field(FRST, "Temp. Controlled Fan")
+	field(FVST, "Sealing Gas")
+	field(SXST, "Always 0")
+	field(SVST, "Always 1")
+	field(EIST, "Power Fail Vent Unit")
+	field(SCAN, "$(SCAN)")
+}
+
+record(mbbo, "$(Sys)$(Dev)Mode:A1-Sel"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeShortIntParam($(ID),035) $(PORT)")
+	field(ZRST, "Continuous Fan")
+	field(ONST, "Venting Valve")
+	field(TWST, "Heating")
+	field(THST, "Backing Pump")
+	field(FRST, "Temp. Controlled Fan")
+	field(FVST, "Sealing Gas")
+	field(SXST, "Always 0")
+	field(SVST, "Always 1")
+	field(EIST, "Power Fail Vent Unit")
+}
+
+record(mbbi, "$(Sys)$(Dev)Mode:B1-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readShortIntParam($(ID),036) $(PORT)")
+	field(ZRST, "Continuous Fan")
+	field(ONST, "Venting Valve")
+	field(TWST, "Heating")
+	field(THST, "Backing Pump")
+	field(FRST, "Temp. Controlled Fan")
+	field(FVST, "Sealing Gas")
+	field(SXST, "Always 0")
+	field(SVST, "Always 1")
+	field(EIST, "Power Fail Vent Unit")
+	field(SCAN, "$(SCAN)")
+}
+
+record(mbbo, "$(Sys)$(Dev)Mode:B1-Sel"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeShortIntParam($(ID),036) $(PORT)")
+	field(ZRST, "Continuous Fan")
+	field(ONST, "Venting Valve")
+	field(TWST, "Heating")
+	field(THST, "Backing Pump")
+	field(FRST, "Temp. Controlled Fan")
+	field(FVST, "Sealing Gas")
+	field(SXST, "Always 0")
+	field(SVST, "Always 1")
+	field(EIST, "Power Fail Vent Unit")
+}
+
+record(mbbi, "$(Sys)$(Dev)Mode:A2-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readShortIntParam($(ID),037) $(PORT)")
+	field(ZRST, "Continuous Fan")
+	field(ONST, "Venting Valve")
+	field(TWST, "Heating")
+	field(THST, "Backing Pump")
+	field(FRST, "Temp. Controlled Fan")
+	field(FVST, "Sealing Gas")
+	field(SXST, "Always 0")
+	field(SVST, "Always 1")
+	field(EIST, "Power Fail Vent Unit")
+	field(SCAN, "$(SCAN)")
+}
+
+record(mbbo, "$(Sys)$(Dev)Mode:A2-Sel"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeShortIntParam($(ID),037) $(PORT)")
+	field(ZRST, "Continuous Fan")
+	field(ONST, "Venting Valve")
+	field(TWST, "Heating")
+	field(THST, "Backing Pump")
+	field(FRST, "Temp. Controlled Fan")
+	field(FVST, "Sealing Gas")
+	field(SXST, "Always 0")
+	field(SVST, "Always 1")
+	field(EIST, "Power Fail Vent Unit")
+}
+
+record(mbbi, "$(Sys)$(Dev)Mode:B2-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readShortIntParam($(ID),038) $(PORT)")
+	field(ZRST, "Continuous Fan")
+	field(ONST, "Venting Valve")
+	field(TWST, "Heating")
+	field(THST, "Backing Pump")
+	field(FRST, "Temp. Controlled Fan")
+	field(FVST, "Sealing Gas")
+	field(SXST, "Always 0")
+	field(SVST, "Always 1")
+	field(EIST, "Power Fail Vent Unit")
+	field(SCAN, "$(SCAN)")
+}
+
+record(mbbo, "$(Sys)$(Dev)Mode:B2-Sel"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeShortIntParam($(ID),038) $(PORT)")
+	field(ZRST, "Continuous Fan")
+	field(ONST, "Venting Valve")
+	field(TWST, "Heating")
+	field(THST, "Backing Pump")
+	field(FRST, "Temp. Controlled Fan")
+	field(FVST, "Sealing Gas")
+	field(SXST, "Always 0")
+	field(SVST, "Always 1")
+	field(EIST, "Power Fail Vent Unit")
+}
+
+record(mbbi, "$(Sys)$(Dev)Mode:DI1-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readShortIntParam($(ID),062) $(PORT)")
+	field(ZRST, "Deactivated")
+	field(ONST, "Enable Venting")
+	field(TWST, "Heating")
+	field(THST, "Sealing Gas")
+	field(FRST, "Run-up Control")
+	field(FVST, "Rot. Speed Setting")
+	field(SXST, "Motor")
+	field(SCAN, "$(SCAN)")
+}
+
+record(mbbo, "$(Sys)$(Dev)Mode:DI1-Sel"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeShortIntParam($(ID),062) $(PORT)")
+	field(ZRST, "Deactivated")
+	field(ONST, "Enable Venting")
+	field(TWST, "Heating")
+	field(THST, "Sealing Gas")
+	field(FRST, "Run-up Control")
+	field(FVST, "Rot. Speed Setting")
+	field(SXST, "Motor")
+}
+
+record(mbbi, "$(Sys)$(Dev)Mode:DI2-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readShortIntParam($(ID),063) $(PORT)")
+	field(ZRST, "Deactivated")
+	field(ONST, "Enable Venting")
+	field(TWST, "Heating")
+	field(THST, "Sealing Gas")
+	field(FRST, "Run-up Control")
+	field(FVST, "Rot. Speed Setting")
+	field(SXST, "Motor")
+	field(SCAN, "$(SCAN)")
+}
+
+record(mbbo, "$(Sys)$(Dev)Mode:DI2-Sel"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeShortIntParam($(ID),063) $(PORT)")
+	field(ZRST, "Deactivated")
+	field(ONST, "Enable Venting")
+	field(TWST, "Heating")
+	field(THST, "Sealing Gas")
+	field(FRST, "Run-up Control")
+	field(FVST, "Rot. Speed Setting")
+	field(SXST, "Motor")
+	field(FLNK, "$(Sys)$(Dev)Mode:DI2-Sts")
+}
+
+
+record(mbbi, "$(Sys)$(Dev)Mode:Vent-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readShortIntParam($(ID),030) $(PORT)")
+	field(ZRST, "Delayed Venting")
+	field(ONST, "No Venting")
+	field(TWST, "Direct Venting")
+	field(SCAN, "$(SCAN)")
+}
+
+record(mbbo, "$(Sys)$(Dev)Mode:Vent-Sel"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeShortIntParam($(ID),030) $(PORT)")
+	field(ZRST, "Delayed Venting")
+	field(ONST, "No Venting")
+	field(TWST, "Direct Venting")
+	field(FLNK, "$(Sys)$(Dev)Mode:Vent-Sts")
+}
