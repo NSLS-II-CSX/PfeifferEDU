@@ -1,0 +1,76 @@
+# RELEASE - Location of external support modules
+#
+# IF YOU MAKE ANY CHANGES to this file you must subsequently
+# do a "gnumake rebuild" in this application's top level
+# directory.
+#
+# The build process does not check dependencies against files
+# that are outside this application, thus you should do a
+# "gnumake rebuild" in the top level directory after EPICS_BASE
+# or any other external module pointed to below is rebuilt.
+#
+# Host- or target-specific settings can be given in files named
+#  RELEASE.$(EPICS_HOST_ARCH).Common
+#  RELEASE.Common.$(T_A)
+#  RELEASE.$(EPICS_HOST_ARCH).$(T_A)
+#
+# This file should ONLY define paths to other support modules,
+# or include statements that pull in similar RELEASE files.
+# Build settings that are NOT module paths should appear in a
+# CONFIG_SITE file.
+
+TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
+
+# If using the sequencer, point SNCSEQ at its top directory:
+#SNCSEQ=$(EPICS_BASE)/../modules/soft/seq
+
+# EPICS_BASE usually appears last so other apps can override stuff:
+EPICS_BASE=/epics/xf/23id/apps/base-3.14.12.5
+
+# Set RULES here if you want to take build rules from somewhere
+# other than EPICS_BASE:
+#RULES=/path/to/epics/support/module/rules/x-y
+SUPPORT=/epics/xf/23id/apps/synApps_5_8/support
+
+#ALIVE=$(SUPPORT)/alive-1-0
+#ALLEN_BRADLEY=$(SUPPORT)/allenBradley-2-3
+#AREA_DETECTOR=$(SUPPORT)/areaDetector-R2-0
+AREA_DETECTOR=/epics/xf/23id/apps/areaDetector
+#ADCORE=$(AREA_DETECTOR)/ADCore-R2-2
+#ADBINARIES=$(AREA_DETECTOR)/ADBinaries-R2-2
+#https://svn.aps.anl.gov/epics/asyn/
+ASYN=$(SUPPORT)/asyn-4-26
+AUTOSAVE=$(SUPPORT)/autosave-5-6-1
+BUSY=$(SUPPORT)/busy-1-6-1
+CALC=$(SUPPORT)/calc-3-4-2-1
+CAMAC=$(SUPPORT)/camac-2-7
+#CAPUTRECORDER=$(SUPPORT)/caputRecorder-1-4-2
+#DAC128V=$(SUPPORT)/dac128V-2-8
+#DELAYGEN=$(SUPPORT)/delaygen-1-1-1
+#http://www.slac.stanford.edu/grp/cd/soft/epics/site/devIocStats/
+DEVIOCSTATS=$(SUPPORT)/devIocStats-3-1-13
+DXP=$(SUPPORT)/dxp-3-4
+#IP=$(SUPPORT)/ip-2-17
+#IP330=$(SUPPORT)/ip330-2-8
+#https://svn.aps.anl.gov/epics/ipac/
+IPAC=$(SUPPORT)/ipac-2-13
+#IPUNIDIG=$(SUPPORT)/ipUnidig-2-10
+#LOVE=$(SUPPORT)/love-3-2-5
+MCA=$(SUPPORT)/mca-7-6
+#MEASCOMP=$(SUPPORT)/measComp-1-1
+#MODBUS=$(SUPPORT)/modbus-2-7
+MOTOR=$(SUPPORT)/motor-6-9
+#OPTICS=$(SUPPORT)/optics-2-9-3
+#QUADEM=$(SUPPORT)/quadEM-5-0
+#http://www-csr.bessy.de/control/SoftDist/sequencer
+#SNCSEQ=$(SUPPORT)/seq-2-1-18
+SNCSEQ=$(SUPPORT)/seq-2-2-1
+#SOFTGLUE=$(SUPPORT)/softGlue-2-4-3
+SSCAN=$(SUPPORT)/sscan-2-10-1
+STD=$(SUPPORT)/std-3-4
+#http://epics.web.psi.ch/software/streamdevice/
+STREAM=$(SUPPORT)/stream-2-6a
+#VAC=$(SUPPORT)/vac-1-5-1
+#VME=$(SUPPORT)/vme-2-8-2
+#XXX=$(SUPPORT)/xxx-5-8-3
+

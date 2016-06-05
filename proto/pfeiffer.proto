@@ -1,0 +1,6 @@
+Terminator = CR;
+
+dataRequest {
+	out "\$100\$202=?%+<sum>";
+	in "\$110\$206%6d%+<sum>";
+}

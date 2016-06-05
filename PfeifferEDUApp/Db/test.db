@@ -1,0 +1,5 @@
+record(ai, "$(Sys)$(Dev)Test"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto dataRequest(001,330) $(PORT)")
+	field(SCAN, "1 second")
+}
