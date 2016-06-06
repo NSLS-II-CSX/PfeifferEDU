@@ -21,7 +21,7 @@ record(bi, "$(Sys)$(Dev)Val:Acc-Sts"){
 	field(INP,  "@pfeiffer.proto readBoolParam($(ID),307) $(PORT)")
 }
 
-record(bo, "$(Sys)$(Dev)Cmd:ErrAck-Cmd"){
+record(bo, "$(Sys)$(Dev)Err:Ack-Cmd"){
 	field(DTYP, "stream")
 	field(OUT,  "@pfeiffer.proto writeBoolParam($(ID),009) $(PORT)")
 	field(ZNAM, "None")
