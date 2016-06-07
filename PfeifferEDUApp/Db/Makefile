@@ -11,6 +11,7 @@ include $(TOP)/configure/CONFIG
 # Create and install (or just install) into <top>/db
 # databases, templates, substitutions like this
 DB += PfeifferEDU_TC110.db
+DB += PfeifferEDU_TC400.db
 DB += PfeifferEDU_Base.db
 DB += PfeifferEDU_Acc.db
 

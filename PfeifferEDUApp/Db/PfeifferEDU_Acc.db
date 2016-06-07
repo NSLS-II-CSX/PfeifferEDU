@@ -1,3 +1,6 @@
+#
+# Records for accessory outputs
+#
 
 record(mbbi, "$(Sys)$(Dev)Mode:A1-Sts"){
 	field(DTYP, "stream")
