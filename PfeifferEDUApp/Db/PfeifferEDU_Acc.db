@@ -1,0 +1,169 @@
+
+record(mbbi, "$(Sys)$(Dev)Mode:A1-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readShortIntParam($(ID),035) $(PORT)")
+	field(ZRST, "Continuous Fan")
+	field(ONST, "Venting Valve")
+	field(TWST, "Heating")
+	field(THST, "Backing Pump")
+	field(FRST, "Temp. Controlled Fan")
+	field(FVST, "Sealing Gas")
+	field(SXST, "Always 0")
+	field(SVST, "Always 1")
+	field(EIST, "Power Fail Vent Unit")
+	field(SCAN, "10 second")
+}
+
+record(mbbo, "$(Sys)$(Dev)Mode:A1-Sel"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeShortIntParam($(ID),035) $(PORT)")
+	field(ZRST, "Continuous Fan")
+	field(ONST, "Venting Valve")
+	field(TWST, "Heating")
+	field(THST, "Backing Pump")
+	field(FRST, "Temp. Controlled Fan")
+	field(FVST, "Sealing Gas")
+	field(SXST, "Always 0")
+	field(SVST, "Always 1")
+	field(EIST, "Power Fail Vent Unit")
+}
+
+record(mbbi, "$(Sys)$(Dev)Mode:B1-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readShortIntParam($(ID),036) $(PORT)")
+	field(ZRST, "Continuous Fan")
+	field(ONST, "Venting Valve")
+	field(TWST, "Heating")
+	field(THST, "Backing Pump")
+	field(FRST, "Temp. Controlled Fan")
+	field(FVST, "Sealing Gas")
+	field(SXST, "Always 0")
+	field(SVST, "Always 1")
+	field(EIST, "Power Fail Vent Unit")
+	field(SCAN, "10 second")
+}
+
+record(mbbo, "$(Sys)$(Dev)Mode:B1-Sel"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeShortIntParam($(ID),036) $(PORT)")
+	field(ZRST, "Continuous Fan")
+	field(ONST, "Venting Valve")
+	field(TWST, "Heating")
+	field(THST, "Backing Pump")
+	field(FRST, "Temp. Controlled Fan")
+	field(FVST, "Sealing Gas")
+	field(SXST, "Always 0")
+	field(SVST, "Always 1")
+	field(EIST, "Power Fail Vent Unit")
+}
+
+record(mbbi, "$(Sys)$(Dev)Mode:A2-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readShortIntParam($(ID),037) $(PORT)")
+	field(ZRST, "Continuous Fan")
+	field(ONST, "Venting Valve")
+	field(TWST, "Heating")
+	field(THST, "Backing Pump")
+	field(FRST, "Temp. Controlled Fan")
+	field(FVST, "Sealing Gas")
+	field(SXST, "Always 0")
+	field(SVST, "Always 1")
+	field(EIST, "Power Fail Vent Unit")
+	field(SCAN, "10 second")
+}
+
+record(mbbo, "$(Sys)$(Dev)Mode:A2-Sel"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeShortIntParam($(ID),037) $(PORT)")
+	field(ZRST, "Continuous Fan")
+	field(ONST, "Venting Valve")
+	field(TWST, "Heating")
+	field(THST, "Backing Pump")
+	field(FRST, "Temp. Controlled Fan")
+	field(FVST, "Sealing Gas")
+	field(SXST, "Always 0")
+	field(SVST, "Always 1")
+	field(EIST, "Power Fail Vent Unit")
+}
+
+record(mbbi, "$(Sys)$(Dev)Mode:B2-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readShortIntParam($(ID),038) $(PORT)")
+	field(ZRST, "Continuous Fan")
+	field(ONST, "Venting Valve")
+	field(TWST, "Heating")
+	field(THST, "Backing Pump")
+	field(FRST, "Temp. Controlled Fan")
+	field(FVST, "Sealing Gas")
+	field(SXST, "Always 0")
+	field(SVST, "Always 1")
+	field(EIST, "Power Fail Vent Unit")
+	field(SCAN, "10 second")
+}
+
+record(mbbo, "$(Sys)$(Dev)Mode:B2-Sel"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeShortIntParam($(ID),038) $(PORT)")
+	field(ZRST, "Continuous Fan")
+	field(ONST, "Venting Valve")
+	field(TWST, "Heating")
+	field(THST, "Backing Pump")
+	field(FRST, "Temp. Controlled Fan")
+	field(FVST, "Sealing Gas")
+	field(SXST, "Always 0")
+	field(SVST, "Always 1")
+	field(EIST, "Power Fail Vent Unit")
+}
+
+record(mbbi, "$(Sys)$(Dev)Mode:DI1-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readShortIntParam($(ID),062) $(PORT)")
+	field(ZRST, "Deactivated")
+	field(ONST, "Enable Venting")
+	field(TWST, "Heating")
+	field(THST, "Sealing Gas")
+	field(FRST, "Run-up Control")
+	field(FVST, "Rot. Speed Setting")
+	field(SXST, "Motor")
+	field(SCAN, "10 second")
+}
+
+record(mbbo, "$(Sys)$(Dev)Mode:DI1-Sel"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeShortIntParam($(ID),062) $(PORT)")
+	field(ZRST, "Deactivated")
+	field(ONST, "Enable Venting")
+	field(TWST, "Heating")
+	field(THST, "Sealing Gas")
+	field(FRST, "Run-up Control")
+	field(FVST, "Rot. Speed Setting")
+	field(SXST, "Motor")
+}
+
+record(mbbi, "$(Sys)$(Dev)Mode:DI2-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readShortIntParam($(ID),063) $(PORT)")
+	field(ZRST, "Deactivated")
+	field(ONST, "Enable Venting")
+	field(TWST, "Heating")
+	field(THST, "Sealing Gas")
+	field(FRST, "Run-up Control")
+	field(FVST, "Rot. Speed Setting")
+	field(SXST, "Motor")
+	field(SCAN, "10 second")
+}
+
+record(mbbo, "$(Sys)$(Dev)Mode:DI2-Sel"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeShortIntParam($(ID),063) $(PORT)")
+	field(ZRST, "Deactivated")
+	field(ONST, "Enable Venting")
+	field(TWST, "Heating")
+	field(THST, "Sealing Gas")
+	field(FRST, "Run-up Control")
+	field(FVST, "Rot. Speed Setting")
+	field(SXST, "Motor")
+	field(FLNK, "$(Sys)$(Dev)Mode:DI2-Sts")
+}
+
+
