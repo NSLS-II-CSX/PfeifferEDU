@@ -156,6 +156,32 @@ record(mbbi, "$(Sys)$(Dev)Mode:DI2-Sts"){
 	field(SCAN, "10 second")
 }
 
+record(mbbo, "$(Sys)$(Dev)Mode:DI3-Sel"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeShortIntParam($(ID),064) $(PORT)")
+	field(ZRST, "Deactivated")
+	field(ONST, "Enable Venting")
+	field(TWST, "Heating")
+	field(THST, "Sealing Gas")
+	field(FRST, "Run-up Control")
+	field(FVST, "Rot. Speed Setting")
+	field(SXST, "Motor")
+	field(FLNK, "$(Sys)$(Dev)Mode:DI2-Sts")
+}
+
+record(mbbi, "$(Sys)$(Dev)Mode:DI3-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readShortIntParam($(ID),064) $(PORT)")
+	field(ZRST, "Deactivated")
+	field(ONST, "Enable Venting")
+	field(TWST, "Heating")
+	field(THST, "Sealing Gas")
+	field(FRST, "Run-up Control")
+	field(FVST, "Rot. Speed Setting")
+	field(SXST, "Motor")
+	field(SCAN, "10 second")
+}
+
 record(mbbo, "$(Sys)$(Dev)Mode:DI2-Sel"){
 	field(DTYP, "stream")
 	field(OUT,  "@pfeiffer.proto writeShortIntParam($(ID),063) $(PORT)")

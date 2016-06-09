@@ -25,21 +25,13 @@ record(bi, "$(Sys)$(Dev)Val:Acc-Sts"){
 	field(INP,  "@pfeiffer.proto readBoolParam($(ID),307) $(PORT)")
 }
 
-record(bo, "$(Sys)$(Dev)Err:Ack-Cmd"){
-	field(DTYP, "stream")
-	field(OUT,  "@pfeiffer.proto writeBoolParam($(ID),009) $(PORT)")
-	field(ZNAM, "None")
-	field(ONAM, "ACK")
-	field(HIGH, "1")
-}
-
-record(longin, "$(Sys)$(Dev)Val:RotSpd-I"){
+record(longin, "$(Sys)$(Dev)S-I"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readIntParam($(ID),309) $(PORT)")
 	field(EGU,  "Hz")
 }
 
-record(longin, "$(Sys)$(Dev)Val:RotSpd-RB"){
+record(longin, "$(Sys)$(Dev)S-RB"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readIntParam($(ID),308) $(PORT)")
 	field(SCAN, "$(SCAN)")
@@ -50,7 +42,7 @@ record(calc, "$(Sys)$(Dev)Pwr-Sts_"){
 	field(INPA, "$(Sys)$(Dev)Pwr-Sts__ PP NMS")
 	field(INPB, "$(Sys)$(Dev)Val:Spd-Sts PP NMS")
 	field(INPC, "$(Sys)$(Dev)Val:Acc-Sts PP NMS")
-	field(INPD, "$(Sys)$(Dev)Val:RotSpd-I PP NMS")
+	field(INPD, "$(Sys)$(Dev)S-I PP NMS")
 	field(CALC, "A + (B << 1) + (C << 2) + ((D > 20) << 3)")
 }
 
@@ -59,16 +51,16 @@ record(mbbi, "$(Sys)$(Dev)Pwr-Sts"){
 	field(INP, "$(Sys)$(Dev)Pwr-Sts_ PP NMS")
 	field(ZRST, "OFF")
 	field(ZRVL, "0")
-	field(ONST, "At Speed")
-	field(ONVL, "11")
-	field(TWST, "Accelerating")
-	field(TWVL, "13")
-	field(THST, "Accelerating")
-	field(THVL, "5")
-	field(FRST, "Decelerating")
-	field(FRVL, "10")
-	field(FVST, "Decelerating")
-	field(FVVL, "8")
+	FIELD(ONST, "AT SPEED")
+	FIELD(ONVL, "11")
+	FIELD(TWST, "ACCELERATING")
+	FIELD(TWVL, "13")
+	FIELD(THST, "ACCELERATING")
+	FIELD(THVL, "5")
+	FIELD(FRST, "DECELERATING")
+	FIELD(FRVL, "10")
+	FIELD(FVST, "DECELERATING")
+	FIELD(FVVL, "8")
 	field(ZRSV, "MINOR")
 	field(ONSV, "NO_ALARM")
 	field(TWSV, "MINOR")
@@ -113,8 +105,17 @@ record(longin, "$(Sys)$(Dev)T:Mtr-I"){
 }
 
 #
-# Error Logging
+# Error Handling
 #
+
+record(bo, "$(Sys)$(Dev)Err:Ack-Cmd"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeBoolParam($(ID),009) $(PORT)")
+	field(ZNAM, "None")
+	field(ONAM, "ACK")
+	field(HIGH, "1")
+}
+
 
 record(mbbi, "$(Sys)$(Dev)Err-Sts_"){
 	field(DTYP, "stream")
@@ -334,17 +335,168 @@ record(longin, "$(Sys)$(Dev)Err:10-Sts"){
 record(mbbi, "$(Sys)$(Dev)Mode:Vent-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readShortIntParam($(ID),030) $(PORT)")
-	field(ZRST, "Delayed Venting")
-	field(ONST, "No Venting")
-	field(TWST, "Direct Venting")
+	FIELD(ZRST, "DELAYED VENTING")
+	FIELD(ONST, "NO VENTING")
+	FIELD(TWST, "DIRECT VENTING")
 	field(SCAN, "10 second")
 }
 
 record(mbbo, "$(Sys)$(Dev)Mode:Vent-Sel"){
 	field(DTYP, "stream")
 	field(OUT,  "@pfeiffer.proto writeShortIntParam($(ID),030) $(PORT)")
-	field(ZRST, "Delayed Venting")
-	field(ONST, "No Venting")
-	field(TWST, "Direct Venting")
+	FIELD(ZRST, "DELAYED VENTING")
+	field(ONST, "NO VENTING")
+	FIELD(TWST, "DIRECT VENTING")
 	field(FLNK, "$(Sys)$(Dev)Mode:Vent-Sts")
 }
+
+#
+## Parameters
+#
+
+record(bi, "$(Sys)$(Dev)S:SP-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readBoolParam($(ID),302) $(PORT)")
+	field(ONAM, "AT SPEED")
+	field(ZNAM, "NOT AT SPEED")
+	field(SCAN, "10 second")
+}
+
+record(bi, "$(Sys)$(Dev)S:Max-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readBoolParam($(ID),306) $(PORT)")
+	field(ONAM, "AT SPEED")
+	field(ZNAM, "NOT AT SPEED")
+	field(SCAN, "10 second")
+}
+
+#
+# Other controls
+#
+
+
+record(bi, "$(Sys)$(Dev)Sw:Heat-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readBoolParam($(ID),001) $(PORT)")
+	field(ONAM, "ON")
+	field(ZNAM, "OFF")
+	field(SCAN, "10 second")
+}
+
+record(bo, "$(Sys)$(Dev)Sw:Heat-Sel"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeBoolParam($(ID),001) $(PORT)")
+	field(ONAM, "ON")
+	field(ZNAM, "OFF")
+}
+
+record(bi, "$(Sys)$(Dev)Sw:Heat-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readBoolParam($(ID),001) $(PORT)")
+	field(ONAM, "ON")
+	field(ZNAM, "OFF")
+	field(SCAN, "10 second")
+}
+
+record(bo, "$(Sys)$(Dev)Sw:Heat-Sel"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeBoolParam($(ID),001) $(PORT)")
+	field(ONAM, "ON")
+	field(ZNAM, "OFF")
+}
+
+record(bi, "$(Sys)$(Dev)Mode:RunCtl-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readBoolParam($(ID),003) $(PORT)")
+	field(ONAM, "ON")
+	field(ZNAM, "OFF")
+	field(SCAN, "10 second")
+}
+
+record(bo, "$(Sys)$(Dev)Mode:RunCtl-Sel"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeBoolParam($(ID),003) $(PORT)")
+	field(ONAM, "ON")
+	field(ZNAM, "OFF")
+}
+
+record(bi, "$(Sys)$(Dev)Mode:Stby-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readBoolParam($(ID),002) $(PORT)")
+	field(ONAM, "ON")
+	field(ZNAM, "OFF")
+	field(SCAN, "10 second")
+}
+
+record(bo, "$(Sys)$(Dev)Mode:Stby-Sel"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeBoolParam($(ID),002) $(PORT)")
+	field(ONAM, "ON")
+	field(ZNAM, "OFF")
+}
+
+record(bi, "$(Sys)$(Dev)Mode:CfgSpdSw-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readShortIntParam($(ID),017) $(PORT)")
+	field(ONAM, "SWITCH 1+2"
+	field(ZNAM, "SWICH 1"
+	field(SCAN, "10 second")
+}
+
+record(bo, "$(Sys)$(Dev)Mode:CfgSpdSw-Sel"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeShortIntParam($(ID),017) $(PORT)")
+	field(ONAM, "SWITCH 1+2")
+	field(ZNAM, "SWITCH 1")
+}
+
+record(bi, "$(Sys)$(Dev)Mode:SpdSet-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readShortIntParam($(ID),026) $(PORT)")
+	field(ONAM, "ON")
+	field(ZNAM, "OFF")
+	field(SCAN, "10 second")
+}
+
+record(bo, "$(Sys)$(Dev)Mode:SpdSet-Sel"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeShortIntParam($(ID),026) $(PORT)")
+	field(ONAM, "ON")
+	field(ZNAM, "OFF")
+}
+
+record(mbbi, "$(Sys)$(Dev)Mode:GasTyp-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readShortIntParam($(ID),026) $(PORT)")
+	field(SCAN, "10 second")
+	field(ZRST, "HEAVY GAS")
+	field(ONST, "LIGHT GAS")
+	field(TWST, "HELIUM")
+}
+
+record(mbbo, "$(Sys)$(Dev)Mode:GasTyp-Sel"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeShortIntParam($(ID),026) $(PORT)")
+	field(ZRST, "HEAVY GAS")
+	field(ONST, "LIGHT GAS")
+	field(TWST, "HELIUM")
+}
+
+#
+# Set Value Settings
+#
+
+record(longin, "$(Sys)$(Dev)Time:RunUp-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readIntParam($(ID),700) $(PORT)")
+	field(SCAN, "10 second")
+	field(EGU,  "min")
+}
+
+record(longout, "$(Sys)$(Dev)Time:RunUp-Sel"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeIntParam($(ID),700) $(PORT)")
+	field(EGU,  "min")
+}
+
+
