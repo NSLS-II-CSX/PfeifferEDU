@@ -438,7 +438,7 @@ record(bo, "$(Sys)$(Dev)Mode:Stby-Sel"){
 record(bi, "$(Sys)$(Dev)Mode:CfgSpdSw-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readShortIntParam($(ID),017) $(PORT)")
-	field(ONAM, "SWITCH 1+2"
+	field(ONAM, "SWITCH 1+2")
 	field(ZNAM, "SWICH 1")
 	field(SCAN, "10 second")
 }
