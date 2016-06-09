@@ -486,14 +486,14 @@ record(mbbo, "$(Sys)$(Dev)Mode:GasTyp-Sel"){
 # Set Value Settings
 #
 
-record(longin, "$(Sys)$(Dev)Time:RunUp-Sts"){
+record(longin, "$(Sys)$(Dev)Time:RunUp-RB"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readIntParam($(ID),700) $(PORT)")
 	field(SCAN, "10 second")
 	field(EGU,  "min")
 }
 
-record(longout, "$(Sys)$(Dev)Time:RunUp-Sel"){
+record(longout, "$(Sys)$(Dev)Time:RunUp-SP"){
 	field(DTYP, "stream")
 	field(OUT,  "@pfeiffer.proto writeIntParam($(ID),700) $(PORT)")
 	field(EGU,  "min")
