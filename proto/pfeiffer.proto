@@ -30,11 +30,6 @@ writeShortIntParam {
 	in "\$110\$203%3d%+<sum>";
 }
 
-writeFloatParam {
-	out "\$100\$206%06d%+<sum>";
-	in "\$110\$206%6d%+<sum>";
-}
-
 readStringParam {
 	out "\$100\$202=?%+<sum>";
 	in "\$110\$206%6s%+<sum>";

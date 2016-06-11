@@ -29,4 +29,5 @@ dbLoadRecords("db/PfeifferEDU_TC110.db","Sys=XF:23ID2-VA,Dev={IOXAS:LoadLck-TMP:
 
 iocInit()
 
-dbl > records.dbl
+dbl > $(TOP)/records.dbl
+system("cp $(TOP)/records.dbl /cf-update/xf23id1-ioc3.es-pfeiffer.dbl")

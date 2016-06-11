@@ -38,6 +38,13 @@ record(longin, "$(Sys)$(Dev)S-RB"){
 	field(EGU,  "Hz")
 }
 
+record(longin, "$(Sys)$(Dev)S:Nom-RB"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readIntParam($(ID),315) $(PORT)")
+	field(SCAN, "$(SCAN)")
+	field(EGU,  "Hz")
+}
+
 record(calc, "$(Sys)$(Dev)Pwr-Sts_"){
 	field(INPA, "$(Sys)$(Dev)Pwr-Sts__ PP NMS")
 	field(INPB, "$(Sys)$(Dev)Val:Spd-Sts PP NMS")
@@ -90,18 +97,47 @@ record(ai, "$(Sys)$(Dev)E-I"){
 	field(ASLO, "0.01")
 }
 
+record(ai, "$(Sys)$(Dev)W-I"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readIntParam($(ID),316) $(PORT)")
+	field(SCAN, "$(SCAN)")
+	field(EGU,  "Volts")
+	field(ASLO, "0.01")
+}
+
 record(longin, "$(Sys)$(Dev)T:Brg-I"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readIntParam($(ID),342) $(PORT)")
 	field(SCAN, "$(SCAN)")
-	field(EGU,  "Hz")
+	field(EGU,  "degC")
 }
 
 record(longin, "$(Sys)$(Dev)T:Mtr-I"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readIntParam($(ID),346) $(PORT)")
 	field(SCAN, "$(SCAN)")
-	field(EGU,  "Hz")
+	field(EGU,  "degC")
+}
+
+record(longin, "$(Sys)$(Dev)T:Bot-I"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readIntParam($(ID),330) $(PORT)")
+	field(SCAN, "$(SCAN)")
+	field(EGU,  "degC")
+}
+
+record(longin, "$(Sys)$(Dev)T:Pwr-I"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readIntParam($(ID),324) $(PORT)")
+	field(SCAN, "$(SCAN)")
+	field(EGU,  "degC")
+}
+
+record(longin, "$(Sys)$(Dev)T:Elec-I"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readIntParam($(ID),326) $(PORT)")
+	field(SCAN, "$(SCAN)")
+	field(EGU,  "degC")
 }
 
 #
@@ -351,8 +387,33 @@ record(mbbo, "$(Sys)$(Dev)Mode:Vent-Sel"){
 }
 
 #
-## Parameters
+## Status Requests (Parameters)
 #
+
+
+record(bi, "$(Sys)$(Dev)Mode:Rmt-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readBoolParam($(ID),300) $(PORT)")
+	field(ONAM, "ON")
+	field(ZNAM, "OFF")
+	field(SCAN, "10 second")
+}
+
+record(bi, "$(Sys)$(Dev)T:EDU-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readBoolParam($(ID),304) $(PORT)")
+	field(ONAM, "OVER TEMP")
+	field(ZNAM, "OK")
+	field(SCAN, "10 second")
+}
+
+record(bi, "$(Sys)$(Dev)T:Pump-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readBoolParam($(ID),305) $(PORT)")
+	field(ONAM, "OVER TEMP")
+	field(ZNAM, "OK")
+	field(SCAN, "10 second")
+}
 
 record(bi, "$(Sys)$(Dev)S:SP-Sts"){
 	field(DTYP, "stream")
@@ -499,4 +560,97 @@ record(longout, "$(Sys)$(Dev)Time:RunUp-SP"){
 	field(EGU,  "min")
 }
 
+record(longin, "$(Sys)$(Dev)S:SwPt1-RB"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readIntParam($(ID),701) $(PORT)")
+	field(SCAN, "10 second")
+	field(EGU,  "%")
+}
 
+record(longout, "$(Sys)$(Dev)S:SwPt1-SP"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeIntParam($(ID),701) $(PORT)")
+	field(EGU,  "%")
+}
+
+record(longin, "$(Sys)$(Dev)S:SwPt2-RB"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readIntParam($(ID),719) $(PORT)")
+	field(SCAN, "10 second")
+	field(EGU,  "%")
+}
+
+record(longout, "$(Sys)$(Dev)S:SwPt2-SP"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeIntParam($(ID),719) $(PORT)")
+	field(EGU,  "%")
+}
+
+record(longin, "$(Sys)$(Dev)S:Vent-RB"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readShortIntParam($(ID),720) $(PORT)")
+	field(SCAN, "10 second")
+	field(EGU,  "%")
+}
+
+record(longout, "$(Sys)$(Dev)S:Vent-SP"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeShortIntParam($(ID),720) $(PORT)")
+	field(EGU,  "%")
+}
+
+record(longin, "$(Sys)$(Dev)Time:Vent-RB"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readIntParam($(ID),721) $(PORT)")
+	field(SCAN, "10 second")
+	field(EGU,  "sec")
+}
+
+record(longout, "$(Sys)$(Dev)Time:Vent-SP"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeIntParam($(ID),721) $(PORT)")
+	field(EGU,  "sec")
+}
+
+record(longout, "$(Sys)$(Dev)S:Nom-SP"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeIntParam($(ID),777) $(PORT)")
+	field(EGU,  "Hz")
+}
+
+record(longin, "$(Sys)$(Dev)S:Nom-RB"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readIntParam($(ID),777) $(PORT)")
+	field(SCAN, "10 second")
+	field(EGU,  "Hz")
+}
+
+record(ao, "$(Sys)$(Dev)S:Stby-SP"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeIntParam($(ID),717) $(PORT)")
+	field(EGU,  "%")
+	field(ASLO, "100")
+}
+
+record(ai, "$(Sys)$(Dev)S:Stby-RB"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readIntParam($(ID),717) $(PORT)")
+	field(SCAN, "10 second")
+	field(EGU,  "%")
+	field(ASLO, "0.01")
+}
+
+record(ao, "$(Sys)$(Dev)S:SSet-SP"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeIntParam($(ID),707) $(PORT)")
+	field(EGU,  "%")
+	field(ASLO, "100")
+}
+
+record(ai, "$(Sys)$(Dev)S:SSet-RB"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readIntParam($(ID),707) $(PORT)")
+	field(SCAN, "10 second")
+	field(EGU,  "%")
+	field(ASLO, "0.01")
+}
