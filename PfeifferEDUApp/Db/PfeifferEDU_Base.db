@@ -126,13 +126,6 @@ record(longin, "$(Sys)$(Dev)T:Bot-I"){
 	field(EGU,  "degC")
 }
 
-record(longin, "$(Sys)$(Dev)T:Pwr-I"){
-	field(DTYP, "stream")
-	field(INP,  "@pfeiffer.proto readIntParam($(ID),324) $(PORT)")
-	field(SCAN, "$(SCAN)")
-	field(EGU,  "degC")
-}
-
 record(longin, "$(Sys)$(Dev)T:Elec-I"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readIntParam($(ID),326) $(PORT)")
@@ -386,6 +379,20 @@ record(mbbo, "$(Sys)$(Dev)Mode:Vent-Sel"){
 	field(FLNK, "$(Sys)$(Dev)Mode:Vent-Sts")
 }
 
+record(bi, "$(Sys)$(Dev)Sw:Vent-Sts"){
+	field(DTYP, "stream")
+	field(INP,  "@pfeiffer.proto readBoolParam($(ID),012) $(PORT)")
+	field(ZNAM, "DISABLED")
+	field(ONAM, "ENABLED")
+	field(SCAN, "10 second")
+}
+
+record(bo, "$(Sys)$(Dev)Sw:Vent-Sel"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writeBoolParam($(ID),012) $(PORT)")
+	field(ZNAM, "DISABLED")
+	field(ONAM, "ENABLED")
+}
 #
 ## Status Requests (Parameters)
 #
