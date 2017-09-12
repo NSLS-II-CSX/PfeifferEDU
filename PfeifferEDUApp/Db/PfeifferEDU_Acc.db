@@ -14,7 +14,7 @@ record(mbbi, "$(Sys)$(Dev)Mode:A1-Sts"){
 	field(SXST, "Always 0")
 	field(SVST, "Always 1")
 	field(EIST, "Power Fail Vent Unit")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 }
 
 record(mbbo, "$(Sys)$(Dev)Mode:A1-Sel"){
@@ -43,7 +43,7 @@ record(mbbi, "$(Sys)$(Dev)Mode:B1-Sts"){
 	field(SXST, "Always 0")
 	field(SVST, "Always 1")
 	field(EIST, "Power Fail Vent Unit")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 }
 
 record(mbbo, "$(Sys)$(Dev)Mode:B1-Sel"){
@@ -72,7 +72,7 @@ record(mbbi, "$(Sys)$(Dev)Mode:A2-Sts"){
 	field(SXST, "Always 0")
 	field(SVST, "Always 1")
 	field(EIST, "Power Fail Vent Unit")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 }
 
 record(mbbo, "$(Sys)$(Dev)Mode:A2-Sel"){
@@ -101,7 +101,7 @@ record(mbbi, "$(Sys)$(Dev)Mode:B2-Sts"){
 	field(SXST, "Always 0")
 	field(SVST, "Always 1")
 	field(EIST, "Power Fail Vent Unit")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 }
 
 record(mbbo, "$(Sys)$(Dev)Mode:B2-Sel"){
@@ -128,7 +128,7 @@ record(mbbi, "$(Sys)$(Dev)Mode:DI1-Sts"){
 	field(FRST, "Run-up Control")
 	field(FVST, "Rot. Speed Setting")
 	field(SXST, "Motor")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 }
 
 record(mbbo, "$(Sys)$(Dev)Mode:DI1-Sel"){
@@ -153,7 +153,7 @@ record(mbbi, "$(Sys)$(Dev)Mode:DI2-Sts"){
 	field(FRST, "Run-up Control")
 	field(FVST, "Rot. Speed Setting")
 	field(SXST, "Motor")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 }
 
 record(mbbo, "$(Sys)$(Dev)Mode:DI2-Sel"){
@@ -168,5 +168,6 @@ record(mbbo, "$(Sys)$(Dev)Mode:DI2-Sel"){
 	field(SXST, "Motor")
 	field(FLNK, "$(Sys)$(Dev)Mode:DI2-Sts")
 }
+
 
 

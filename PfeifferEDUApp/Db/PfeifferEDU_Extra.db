@@ -5,7 +5,7 @@
 record(mbbi, "$(Sys)$(Dev)Out:Rly1-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readShortIntParam($(ID),045) $(PORT)")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 	field(ZRST, "Speed SP")
 	field(ONST, "No Error")
 	field(TWST, "Error")
@@ -48,7 +48,7 @@ record(mbbo, "$(Sys)$(Dev)Out:Rly1-Sel"){
 record(mbbi, "$(Sys)$(Dev)Out:Rly2-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readShortIntParam($(ID),046) $(PORT)")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 	field(ZRST, "Speed SP")
 	field(ONST, "No Error")
 	field(TWST, "Error")
@@ -91,7 +91,7 @@ record(mbbo, "$(Sys)$(Dev)Out:Rly2-Sel"){
 record(mbbi, "$(Sys)$(Dev)Out:Rly3-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readShortIntParam($(ID),047) $(PORT)")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 	field(ZRST, "Speed SP")
 	field(ONST, "No Error")
 	field(TWST, "Error")
@@ -134,7 +134,7 @@ record(mbbo, "$(Sys)$(Dev)Out:Rly3-Sel"){
 record(mbbi, "$(Sys)$(Dev)Mode:Rly-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readShortIntParam($(ID),028) $(PORT)")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 	field(ZRST, "Standard")
 	field(ONST, "Inverted")
 	field(ZRVL, "0")
@@ -173,5 +173,5 @@ record(mbbi, "$(Sys)$(Dev)Mode:DI3-Sts"){
 	field(FRST, "Run-up Control")
 	field(FVST, "Rot. Speed Setting")
 	field(SXST, "Motor")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 }

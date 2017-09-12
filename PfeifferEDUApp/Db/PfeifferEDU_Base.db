@@ -2,12 +2,19 @@
 #  Pump ON/OFF Commands
 #
 
-record(bo, "$(Sys)$(Dev)Pwr-Sel"){
+record(bo, "$(Sys)$(Dev)Cmd:On-Cmd"){
 	field(DTYP, "stream")
-	field(OUT,  "@pfeiffer.proto writeBoolParam($(ID),010) $(PORT)")
-	field(FLNK, "$(Sys)$(Dev)Pwr-Sts")
-	field(ZNAM, "OFF")
-	field(ONAM, "ON")
+	field(OUT,  "@pfeiffer.proto writePumpOn($(ID)) $(PORT)")
+}
+
+record(bo, "$(Sys)$(Dev)Cmd:Off-Cmd"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writePumpOff($(ID)) $(PORT)")
+}
+
+record(bo, "$(Sys)$(Dev)Cmd:OffVent-Cmd"){
+	field(DTYP, "stream")
+	field(OUT,  "@pfeiffer.proto writePumpOffVent($(ID)) $(PORT)")
 }
 
 record(bi, "$(Sys)$(Dev)Pwr-Sts__"){
@@ -162,7 +169,7 @@ record(mbbi, "$(Sys)$(Dev)Err-Sts_"){
 record(longin, "$(Sys)$(Dev)Err-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),303) $(PORT)")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 	field(SDIS, "$(Sys)$(Dev)Err-Sts_ PP MS")
 	field(DISV, "256")
 }
@@ -181,7 +188,7 @@ record(mbbi, "$(Sys)$(Dev)Err:1-Sts_"){
 record(longin, "$(Sys)$(Dev)Err:1-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),360) $(PORT)")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 	field(SDIS, "$(Sys)$(Dev)Err:1-Sts_ PP MS")
 	field(DISV, "256")
 }
@@ -200,7 +207,7 @@ record(mbbi, "$(Sys)$(Dev)Err:2-Sts_"){
 record(longin, "$(Sys)$(Dev)Err:2-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),361) $(PORT)")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 	field(SDIS, "$(Sys)$(Dev)Err:2-Sts_ PP MS")
 	field(DISV, "256")
 }
@@ -219,7 +226,7 @@ record(mbbi, "$(Sys)$(Dev)Err:3-Sts_"){
 record(longin, "$(Sys)$(Dev)Err:3-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),362) $(PORT)")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 	field(SDIS, "$(Sys)$(Dev)Err:3-Sts_ PP MS")
 	field(DISV, "256")
 }
@@ -238,7 +245,7 @@ record(mbbi, "$(Sys)$(Dev)Err:4-Sts_"){
 record(longin, "$(Sys)$(Dev)Err:4-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),363) $(PORT)")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 	field(SDIS, "$(Sys)$(Dev)Err:4-Sts_ PP MS")
 	field(DISV, "256")
 }
@@ -257,7 +264,7 @@ record(mbbi, "$(Sys)$(Dev)Err:5-Sts_"){
 record(longin, "$(Sys)$(Dev)Err:5-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),364) $(PORT)")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 	field(SDIS, "$(Sys)$(Dev)Err:5-Sts_ PP MS")
 	field(DISV, "256")
 }
@@ -276,7 +283,7 @@ record(mbbi, "$(Sys)$(Dev)Err:6-Sts_"){
 record(longin, "$(Sys)$(Dev)Err:6-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),365) $(PORT)")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 	field(SDIS, "$(Sys)$(Dev)Err:6-Sts_ PP MS")
 	field(DISV, "256")
 }
@@ -295,7 +302,7 @@ record(mbbi, "$(Sys)$(Dev)Err:7-Sts_"){
 record(longin, "$(Sys)$(Dev)Err:7-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),366) $(PORT)")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 	field(SDIS, "$(Sys)$(Dev)Err:7-Sts_ PP MS")
 	field(DISV, "256")
 }
@@ -314,7 +321,7 @@ record(mbbi, "$(Sys)$(Dev)Err:8-Sts_"){
 record(longin, "$(Sys)$(Dev)Err:8-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),367) $(PORT)")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 	field(SDIS, "$(Sys)$(Dev)Err:8-Sts_ PP MS")
 	field(DISV, "256")
 }
@@ -333,7 +340,7 @@ record(mbbi, "$(Sys)$(Dev)Err:9-Sts_"){
 record(longin, "$(Sys)$(Dev)Err:9-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),368) $(PORT)")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 	field(SDIS, "$(Sys)$(Dev)Err:9-Sts_ PP MS")
 	field(DISV, "256")
 }
@@ -352,7 +359,7 @@ record(mbbi, "$(Sys)$(Dev)Err:10-Sts_"){
 record(longin, "$(Sys)$(Dev)Err:10-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readErrorCodeParam($(ID),369) $(PORT)")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 	field(SDIS, "$(Sys)$(Dev)Err:10-Sts_ PP MS")
 	field(DISV, "256")
 }
@@ -367,7 +374,7 @@ record(mbbi, "$(Sys)$(Dev)Mode:Vent-Sts"){
 	field(ZRST, "DELAYED VENTING")
 	field(ONST, "NO VENTING")
 	field(TWST, "DIRECT VENTING")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 }
 
 record(mbbo, "$(Sys)$(Dev)Mode:Vent-Sel"){
@@ -379,15 +386,15 @@ record(mbbo, "$(Sys)$(Dev)Mode:Vent-Sel"){
 	field(FLNK, "$(Sys)$(Dev)Mode:Vent-Sts")
 }
 
-record(bi, "$(Sys)$(Dev)Sw:Vent-Sts"){
+record(bi, "$(Sys)$(Dev)Enbl:Vent-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readBoolParam($(ID),012) $(PORT)")
 	field(ZNAM, "DISABLED")
 	field(ONAM, "ENABLED")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 }
 
-record(bo, "$(Sys)$(Dev)Sw:Vent-Sel"){
+record(bo, "$(Sys)$(Dev)Enbl:Vent-Sel"){
 	field(DTYP, "stream")
 	field(OUT,  "@pfeiffer.proto writeBoolParam($(ID),012) $(PORT)")
 	field(ZNAM, "DISABLED")
@@ -403,7 +410,7 @@ record(bi, "$(Sys)$(Dev)Mode:Rmt-Sts"){
 	field(INP,  "@pfeiffer.proto readBoolParam($(ID),300) $(PORT)")
 	field(ONAM, "ON")
 	field(ZNAM, "OFF")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 }
 
 record(bi, "$(Sys)$(Dev)T:EDU-Sts"){
@@ -411,7 +418,7 @@ record(bi, "$(Sys)$(Dev)T:EDU-Sts"){
 	field(INP,  "@pfeiffer.proto readBoolParam($(ID),304) $(PORT)")
 	field(ONAM, "OVER TEMP")
 	field(ZNAM, "OK")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 }
 
 record(bi, "$(Sys)$(Dev)T:Pump-Sts"){
@@ -419,7 +426,7 @@ record(bi, "$(Sys)$(Dev)T:Pump-Sts"){
 	field(INP,  "@pfeiffer.proto readBoolParam($(ID),305) $(PORT)")
 	field(ONAM, "OVER TEMP")
 	field(ZNAM, "OK")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 }
 
 record(bi, "$(Sys)$(Dev)S:SP-Sts"){
@@ -427,7 +434,7 @@ record(bi, "$(Sys)$(Dev)S:SP-Sts"){
 	field(INP,  "@pfeiffer.proto readBoolParam($(ID),302) $(PORT)")
 	field(ONAM, "AT SPEED")
 	field(ZNAM, "NOT AT SPEED")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 }
 
 record(bi, "$(Sys)$(Dev)S:Max-Sts"){
@@ -435,7 +442,7 @@ record(bi, "$(Sys)$(Dev)S:Max-Sts"){
 	field(INP,  "@pfeiffer.proto readBoolParam($(ID),306) $(PORT)")
 	field(ONAM, "AT SPEED")
 	field(ZNAM, "NOT AT SPEED")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 }
 
 #
@@ -448,7 +455,7 @@ record(bi, "$(Sys)$(Dev)Sw:Heat-Sts"){
 	field(INP,  "@pfeiffer.proto readBoolParam($(ID),001) $(PORT)")
 	field(ONAM, "ON")
 	field(ZNAM, "OFF")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 }
 
 record(bo, "$(Sys)$(Dev)Sw:Heat-Sel"){
@@ -457,28 +464,28 @@ record(bo, "$(Sys)$(Dev)Sw:Heat-Sel"){
 	field(ONAM, "ON")
 	field(ZNAM, "OFF")
 }
-
-record(bi, "$(Sys)$(Dev)Sw:Heat-Sts"){
-	field(DTYP, "stream")
-	field(INP,  "@pfeiffer.proto readBoolParam($(ID),001) $(PORT)")
-	field(ONAM, "ON")
-	field(ZNAM, "OFF")
-	field(SCAN, "10 second")
-}
-
-record(bo, "$(Sys)$(Dev)Sw:Heat-Sel"){
-	field(DTYP, "stream")
-	field(OUT,  "@pfeiffer.proto writeBoolParam($(ID),001) $(PORT)")
-	field(ONAM, "ON")
-	field(ZNAM, "OFF")
-}
+# TODO delete these 2 records. REPEATS ABOVE
+#record(bi, "$(Sys)$(Dev)Sw:Heat-Sts"){
+#	field(DTYP, "stream")
+#	field(INP,  "@pfeiffer.proto readBoolParam($(ID),001) $(PORT)")
+#	field(ONAM, "ON")
+#	field(ZNAM, "OFF")
+#	field(SCAN, "$(SCAN)")
+#}
+#
+#record(bo, "$(Sys)$(Dev)Sw:Heat-Sel"){
+#	field(DTYP, "stream")
+#	field(OUT,  "@pfeiffer.proto writeBoolParam($(ID),001) $(PORT)")
+#	field(ONAM, "ON")
+#	field(ZNAM, "OFF")
+#}
 
 record(bi, "$(Sys)$(Dev)Mode:RunCtl-Sts"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readBoolParam($(ID),003) $(PORT)")
 	field(ONAM, "ON")
 	field(ZNAM, "OFF")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 }
 
 record(bo, "$(Sys)$(Dev)Mode:RunCtl-Sel"){
@@ -493,7 +500,7 @@ record(bi, "$(Sys)$(Dev)Mode:Stby-Sts"){
 	field(INP,  "@pfeiffer.proto readBoolParam($(ID),002) $(PORT)")
 	field(ONAM, "ON")
 	field(ZNAM, "OFF")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 }
 
 record(bo, "$(Sys)$(Dev)Mode:Stby-Sel"){
@@ -508,7 +515,7 @@ record(bi, "$(Sys)$(Dev)Mode:CfgSpdSw-Sts"){
 	field(INP,  "@pfeiffer.proto readShortIntParam($(ID),017) $(PORT)")
 	field(ONAM, "SWITCH 1+2")
 	field(ZNAM, "SWICH 1")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 }
 
 record(bo, "$(Sys)$(Dev)Mode:CfgSpdSw-Sel"){
@@ -523,7 +530,7 @@ record(bi, "$(Sys)$(Dev)Mode:SpdSet-Sts"){
 	field(INP,  "@pfeiffer.proto readShortIntParam($(ID),026) $(PORT)")
 	field(ONAM, "ON")
 	field(ZNAM, "OFF")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 }
 
 record(bo, "$(Sys)$(Dev)Mode:SpdSet-Sel"){
@@ -535,8 +542,8 @@ record(bo, "$(Sys)$(Dev)Mode:SpdSet-Sel"){
 
 record(mbbi, "$(Sys)$(Dev)Mode:GasTyp-Sts"){
 	field(DTYP, "stream")
-	field(INP,  "@pfeiffer.proto readShortIntParam($(ID),026) $(PORT)")
-	field(SCAN, "10 second")
+	field(INP,  "@pfeiffer.proto readShortIntParam($(ID),027) $(PORT)")
+	field(SCAN, "$(SCAN)")
 	field(ZRST, "HEAVY GAS")
 	field(ONST, "LIGHT GAS")
 	field(TWST, "HELIUM")
@@ -544,7 +551,7 @@ record(mbbi, "$(Sys)$(Dev)Mode:GasTyp-Sts"){
 
 record(mbbo, "$(Sys)$(Dev)Mode:GasTyp-Sel"){
 	field(DTYP, "stream")
-	field(OUT,  "@pfeiffer.proto writeShortIntParam($(ID),026) $(PORT)")
+	field(OUT,  "@pfeiffer.proto writeShortIntParam($(ID),027) $(PORT)")
 	field(ZRST, "HEAVY GAS")
 	field(ONST, "LIGHT GAS")
 	field(TWST, "HELIUM")
@@ -557,7 +564,7 @@ record(mbbo, "$(Sys)$(Dev)Mode:GasTyp-Sel"){
 record(longin, "$(Sys)$(Dev)Time:RunUp-RB"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readIntParam($(ID),700) $(PORT)")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 	field(EGU,  "min")
 }
 
@@ -570,7 +577,7 @@ record(longout, "$(Sys)$(Dev)Time:RunUp-SP"){
 record(longin, "$(Sys)$(Dev)S:SwPt1-RB"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readIntParam($(ID),701) $(PORT)")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 	field(EGU,  "%")
 }
 
@@ -583,7 +590,7 @@ record(longout, "$(Sys)$(Dev)S:SwPt1-SP"){
 record(longin, "$(Sys)$(Dev)S:SwPt2-RB"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readIntParam($(ID),719) $(PORT)")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 	field(EGU,  "%")
 }
 
@@ -596,7 +603,7 @@ record(longout, "$(Sys)$(Dev)S:SwPt2-SP"){
 record(longin, "$(Sys)$(Dev)S:Vent-RB"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readShortIntParam($(ID),720) $(PORT)")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 	field(EGU,  "%")
 }
 
@@ -609,7 +616,7 @@ record(longout, "$(Sys)$(Dev)S:Vent-SP"){
 record(longin, "$(Sys)$(Dev)Time:Vent-RB"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readIntParam($(ID),721) $(PORT)")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 	field(EGU,  "sec")
 }
 
@@ -628,7 +635,7 @@ record(longout, "$(Sys)$(Dev)S:Nom-SP"){
 record(longin, "$(Sys)$(Dev)S:Nom-RB"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readIntParam($(ID),777) $(PORT)")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 	field(EGU,  "Hz")
 }
 
@@ -642,7 +649,7 @@ record(ao, "$(Sys)$(Dev)S:Stby-SP"){
 record(ai, "$(Sys)$(Dev)S:Stby-RB"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readIntParam($(ID),717) $(PORT)")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 	field(EGU,  "%")
 	field(ASLO, "0.01")
 }
@@ -657,7 +664,7 @@ record(ao, "$(Sys)$(Dev)S:SSet-SP"){
 record(ai, "$(Sys)$(Dev)S:SSet-RB"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readIntParam($(ID),707) $(PORT)")
-	field(SCAN, "10 second")
+	field(SCAN, "$(SCAN)")
 	field(EGU,  "%")
 	field(ASLO, "0.01")
 }

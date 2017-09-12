@@ -247,6 +247,7 @@ epicsShareExtern dset *pvar_dset_asynWfOctetCmdResponse;
 epicsShareExtern dset *pvar_dset_asynWfOctetWriteRead;
 epicsShareExtern dset *pvar_dset_asynWfOctetRead;
 epicsShareExtern dset *pvar_dset_asynWfOctetWrite;
+epicsShareExtern dset *pvar_dset_asynWfOctetWriteBinary;
 epicsShareExtern dset *pvar_dset_asynInt8ArrayWfIn;
 epicsShareExtern dset *pvar_dset_asynInt8ArrayWfOut;
 epicsShareExtern dset *pvar_dset_asynInt16ArrayWfIn;
@@ -268,7 +269,7 @@ epicsShareExtern dset *pvar_dset_devBusySoftRaw;
 epicsShareExtern dset *pvar_dset_asynBusyInt32;
 epicsShareExtern dset *pvar_dset_asynRecordDevice;
 
-static const char * const deviceSupportNames[110] = {
+static const char * const deviceSupportNames[111] = {
     "devAaiSoft",
     "devaaiStream",
     "devAaoSoft",
@@ -359,6 +360,7 @@ static const char * const deviceSupportNames[110] = {
     "asynWfOctetWriteRead",
     "asynWfOctetRead",
     "asynWfOctetWrite",
+    "asynWfOctetWriteBinary",
     "asynInt8ArrayWfIn",
     "asynInt8ArrayWfOut",
     "asynInt16ArrayWfIn",
@@ -381,7 +383,7 @@ static const char * const deviceSupportNames[110] = {
     "asynRecordDevice"
 };
 
-static const dset * const devsl[110] = {
+static const dset * const devsl[111] = {
     pvar_dset_devAaiSoft,
     pvar_dset_devaaiStream,
     pvar_dset_devAaoSoft,
@@ -472,6 +474,7 @@ static const dset * const devsl[110] = {
     pvar_dset_asynWfOctetWriteRead,
     pvar_dset_asynWfOctetRead,
     pvar_dset_asynWfOctetWrite,
+    pvar_dset_asynWfOctetWriteBinary,
     pvar_dset_asynInt8ArrayWfIn,
     pvar_dset_asynInt8ArrayWfOut,
     pvar_dset_asynInt16ArrayWfIn,
@@ -595,7 +598,7 @@ static struct iocshVarDef vardefs[] = {
 
 int PfeifferEDU_registerRecordDeviceDriver(DBBASE *pbase)
 {
-    const char *bldTop = "/home/swilkins/Repos/iocs/PfeifferEDU";
+    const char *bldTop = "/epics/iocs/es-pfeiffer";
     const char *envTop = getenv("TOP");
 
     if (envTop && strcmp(envTop, bldTop)) {
@@ -610,7 +613,7 @@ int PfeifferEDU_registerRecordDeviceDriver(DBBASE *pbase)
     }
 
     registerRecordTypes(pbase, 35, recordTypeNames, rtl);
-    registerDevices(pbase, 110, deviceSupportNames, devsl);
+    registerDevices(pbase, 111, deviceSupportNames, devsl);
     registerDrivers(pbase, 2, driverSupportNames, drvsl);
     (*pvar_func_asSub)();
     (*pvar_func_subAveRegister)();
