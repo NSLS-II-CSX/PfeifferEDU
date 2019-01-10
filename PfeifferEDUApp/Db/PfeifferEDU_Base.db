@@ -464,21 +464,6 @@ record(bo, "$(Sys)$(Dev)Sw:Heat-Sel"){
 	field(ONAM, "ON")
 	field(ZNAM, "OFF")
 }
-# TODO delete these 2 records. REPEATS ABOVE
-#record(bi, "$(Sys)$(Dev)Sw:Heat-Sts"){
-#	field(DTYP, "stream")
-#	field(INP,  "@pfeiffer.proto readBoolParam($(ID),001) $(PORT)")
-#	field(ONAM, "ON")
-#	field(ZNAM, "OFF")
-#	field(SCAN, "$(SCAN)")
-#}
-#
-#record(bo, "$(Sys)$(Dev)Sw:Heat-Sel"){
-#	field(DTYP, "stream")
-#	field(OUT,  "@pfeiffer.proto writeBoolParam($(ID),001) $(PORT)")
-#	field(ONAM, "ON")
-#	field(ZNAM, "OFF")
-#}
 
 record(bi, "$(Sys)$(Dev)Mode:RunCtl-Sts"){
 	field(DTYP, "stream")
