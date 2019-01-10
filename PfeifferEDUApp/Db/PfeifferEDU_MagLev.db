@@ -12,4 +12,23 @@ record(longin, "$(Sys)$(Dev)Brg:Wear-I"){
 }
 
 
+#
+# Controls
+#
+
+record(bi, "$(Sys)$(Dev)Sw:Brake-Sts"){
+        field(DTYP, "stream")
+        field(INP,  "@pfeiffer.proto readBoolParam($(ID),013) $(PORT)")
+        field(ONAM, "ON")
+        field(ZNAM, "OFF")
+        field(SCAN, "$(SCAN)")
+}
+
+# TODO - enable when we understand how to use it
+#record(bo, "$(Sys)$(Dev)Sw:Brake-Sel"){
+#        field(DTYP, "stream")
+#        field(OUT,  "@pfeiffer.proto writeBoolParam($(ID),013) $(PORT)")
+#        field(ONAM, "ON")
+#        field(ZNAM, "OFF")
+#}
 
