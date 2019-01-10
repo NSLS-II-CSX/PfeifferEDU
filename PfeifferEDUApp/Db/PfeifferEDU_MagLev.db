@@ -1,0 +1,15 @@
+#This is for the maglev pumps with TM 700.  It should have everything in TC 400 plus the items added below
+
+#
+# Indicators
+#
+
+record(longin, "$(Sys)$(Dev)Brg:Wear-I"){
+        field(DTYP, "stream")
+        field(INP,  "@pfeiffer.proto readIntParam($(ID),326) $(PORT)")
+        field(SCAN, "$(SCAN)")
+        field(EGU,  "%")
+}
+
+
+
