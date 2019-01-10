@@ -108,7 +108,7 @@ record(ai, "$(Sys)$(Dev)W-I"){
 	field(DTYP, "stream")
 	field(INP,  "@pfeiffer.proto readIntParam($(ID),316) $(PORT)")
 	field(SCAN, "$(SCAN)")
-	field(EGU,  "Volts")
+	field(EGU,  "Watts")
 	field(ASLO, "0.01")
 }
 
